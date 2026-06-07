@@ -35,6 +35,77 @@ export type Database = {
         }
         Relationships: []
       }
+      appointments: {
+        Row: {
+          assigned_user_id: string | null
+          calendar_id: string | null
+          contact_id: string | null
+          end_time: string | null
+          id: string
+          location_id: string | null
+          raw: Json | null
+          start_time: string | null
+          status: string | null
+          synced_at: string | null
+          title: string | null
+        }
+        Insert: {
+          assigned_user_id?: string | null
+          calendar_id?: string | null
+          contact_id?: string | null
+          end_time?: string | null
+          id: string
+          location_id?: string | null
+          raw?: Json | null
+          start_time?: string | null
+          status?: string | null
+          synced_at?: string | null
+          title?: string | null
+        }
+        Update: {
+          assigned_user_id?: string | null
+          calendar_id?: string | null
+          contact_id?: string | null
+          end_time?: string | null
+          id?: string
+          location_id?: string | null
+          raw?: Json | null
+          start_time?: string | null
+          status?: string | null
+          synced_at?: string | null
+          title?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_assigned_user_id_fkey"
+            columns: ["assigned_user_id"]
+            isOneToOne: false
+            referencedRelation: "ghl_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "v_leads_enriched"
+            referencedColumns: ["contact_id"]
+          },
+          {
+            foreignKeyName: "appointments_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       auth_identity: {
         Row: {
           createdAt: string
@@ -108,6 +179,88 @@ export type Database = {
           updated?: number
         }
         Relationships: []
+      }
+      client_users: {
+        Row: {
+          created_at: string | null
+          location_id: string
+          role: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          location_id: string
+          role?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          location_id?: string
+          role?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "client_users_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      contacts: {
+        Row: {
+          date_added: string | null
+          email: string | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          location_id: string | null
+          phone: string | null
+          raw: Json | null
+          source: string | null
+          synced_at: string | null
+          tags: string[] | null
+          updated_at: string | null
+        }
+        Insert: {
+          date_added?: string | null
+          email?: string | null
+          first_name?: string | null
+          id: string
+          last_name?: string | null
+          location_id?: string | null
+          phone?: string | null
+          raw?: Json | null
+          source?: string | null
+          synced_at?: string | null
+          tags?: string[] | null
+          updated_at?: string | null
+        }
+        Update: {
+          date_added?: string | null
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          location_id?: string | null
+          phone?: string | null
+          raw?: Json | null
+          source?: string | null
+          synced_at?: string | null
+          tags?: string[] | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contacts_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       credentials_entity: {
         Row: {
@@ -435,6 +588,38 @@ export type Database = {
         }
         Relationships: []
       }
+      ghl_users: {
+        Row: {
+          email: string | null
+          id: string
+          location_id: string | null
+          name: string | null
+          raw: Json | null
+        }
+        Insert: {
+          email?: string | null
+          id: string
+          location_id?: string | null
+          name?: string | null
+          raw?: Json | null
+        }
+        Update: {
+          email?: string | null
+          id?: string
+          location_id?: string | null
+          name?: string | null
+          raw?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ghl_users_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       insights_by_period: {
         Row: {
           id: number
@@ -612,6 +797,27 @@ export type Database = {
         }
         Relationships: []
       }
+      locations: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string
+          timezone: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id: string
+          name: string
+          timezone?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string
+          timezone?: string | null
+        }
+        Relationships: []
+      }
       migrations: {
         Row: {
           id: number
@@ -629,6 +835,171 @@ export type Database = {
           timestamp?: number
         }
         Relationships: []
+      }
+      opportunities: {
+        Row: {
+          assigned_user_id: string | null
+          contact_id: string | null
+          date_added: string | null
+          id: string
+          location_id: string | null
+          monetary_value: number | null
+          name: string | null
+          pipeline_id: string | null
+          pipeline_stage_id: string | null
+          raw: Json | null
+          source: string | null
+          status: string | null
+          synced_at: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          assigned_user_id?: string | null
+          contact_id?: string | null
+          date_added?: string | null
+          id: string
+          location_id?: string | null
+          monetary_value?: number | null
+          name?: string | null
+          pipeline_id?: string | null
+          pipeline_stage_id?: string | null
+          raw?: Json | null
+          source?: string | null
+          status?: string | null
+          synced_at?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          assigned_user_id?: string | null
+          contact_id?: string | null
+          date_added?: string | null
+          id?: string
+          location_id?: string | null
+          monetary_value?: number | null
+          name?: string | null
+          pipeline_id?: string | null
+          pipeline_stage_id?: string | null
+          raw?: Json | null
+          source?: string | null
+          status?: string | null
+          synced_at?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "opportunities_assigned_user_id_fkey"
+            columns: ["assigned_user_id"]
+            isOneToOne: false
+            referencedRelation: "ghl_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "opportunities_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "opportunities_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "v_leads_enriched"
+            referencedColumns: ["contact_id"]
+          },
+          {
+            foreignKeyName: "opportunities_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "opportunities_pipeline_id_fkey"
+            columns: ["pipeline_id"]
+            isOneToOne: false
+            referencedRelation: "pipelines"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "opportunities_pipeline_stage_id_fkey"
+            columns: ["pipeline_stage_id"]
+            isOneToOne: false
+            referencedRelation: "pipeline_stages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pipeline_stages: {
+        Row: {
+          id: string
+          location_id: string | null
+          name: string | null
+          pipeline_id: string | null
+          position: number | null
+          raw: Json | null
+        }
+        Insert: {
+          id: string
+          location_id?: string | null
+          name?: string | null
+          pipeline_id?: string | null
+          position?: number | null
+          raw?: Json | null
+        }
+        Update: {
+          id?: string
+          location_id?: string | null
+          name?: string | null
+          pipeline_id?: string | null
+          position?: number | null
+          raw?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pipeline_stages_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pipeline_stages_pipeline_id_fkey"
+            columns: ["pipeline_id"]
+            isOneToOne: false
+            referencedRelation: "pipelines"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pipelines: {
+        Row: {
+          id: string
+          location_id: string | null
+          name: string | null
+          raw: Json | null
+        }
+        Insert: {
+          id: string
+          location_id?: string | null
+          name?: string | null
+          raw?: Json | null
+        }
+        Update: {
+          id?: string
+          location_id?: string | null
+          name?: string | null
+          raw?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pipelines_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       processed_data: {
         Row: {
@@ -826,6 +1197,39 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      sync_events: {
+        Row: {
+          created_at: string | null
+          error_message: string | null
+          event_type: string | null
+          ghl_object_id: string | null
+          id: number
+          location_id: string | null
+          payload: Json | null
+          status: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          error_message?: string | null
+          event_type?: string | null
+          ghl_object_id?: string | null
+          id?: number
+          location_id?: string | null
+          payload?: Json | null
+          status?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          error_message?: string | null
+          event_type?: string | null
+          ghl_object_id?: string | null
+          id?: number
+          location_id?: string | null
+          payload?: Json | null
+          status?: string | null
+        }
+        Relationships: []
       }
       tag_entity: {
         Row: {
@@ -1270,10 +1674,95 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      v_leads_enriched: {
+        Row: {
+          assigned_user_id: string | null
+          booked_at: string | null
+          contact_id: string | null
+          email: string | null
+          first_name: string | null
+          is_booked: boolean | null
+          is_won: boolean | null
+          last_name: string | null
+          lead_created_at: string | null
+          location_id: string | null
+          source: string | null
+          tags: string[] | null
+          won_value: number | null
+        }
+        Insert: {
+          assigned_user_id?: never
+          booked_at?: never
+          contact_id?: string | null
+          email?: string | null
+          first_name?: string | null
+          is_booked?: never
+          is_won?: never
+          last_name?: string | null
+          lead_created_at?: string | null
+          location_id?: string | null
+          source?: string | null
+          tags?: string[] | null
+          won_value?: never
+        }
+        Update: {
+          assigned_user_id?: never
+          booked_at?: never
+          contact_id?: string | null
+          email?: string | null
+          first_name?: string | null
+          is_booked?: never
+          is_won?: never
+          last_name?: string | null
+          lead_created_at?: string | null
+          location_id?: string | null
+          source?: string | null
+          tags?: string[] | null
+          won_value?: never
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contacts_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
+      get_book_rate_summary: {
+        Args: { p_end: string; p_location_id: string; p_start: string }
+        Returns: {
+          book_rate_pct: number
+          booked_leads: number
+          total_leads: number
+        }[]
+      }
+      get_book_rate_timeseries: {
+        Args: {
+          p_end: string
+          p_granularity?: string
+          p_location_id: string
+          p_start: string
+        }
+        Returns: {
+          book_rate_pct: number
+          booked_leads: number
+          bucket: string
+          total_leads: number
+        }[]
+      }
+      get_daily_bookings: {
+        Args: never
+        Returns: {
+          booking_date: string
+          bookings: number
+        }[]
+      }
       is_admin: { Args: { user_id: string }; Returns: boolean }
+      user_locations: { Args: never; Returns: string[] }
     }
     Enums: {
       [_ in never]: never
