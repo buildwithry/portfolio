@@ -12,6 +12,19 @@ import vapiThumbnailAsset from "../../assets/vapi-receptionist-thumbnail.jpg.ass
 
 const vapiThumbnail = vapiThumbnailAsset.url;
 const projects = [{
+  title: "VAPI AI Receptionist",
+  description: "Service Business: A voice AI receptionist that answers calls 24/7, qualifies leads, books appointments, and syncs everything into the CRM in real time.",
+  technologies: ["GoHighLevel", "n8n", "VAPI", "Supabase", "Claude Code"],
+  features: ["24/7 AI voice call handling", "Real-time lead capture into GHL", "Appointment booking via voice", "Conversation logs stored in Supabase"],
+  category: "Voice AI",
+  client: "Service Business",
+  problem: "Missed calls outside business hours and slow lead response were costing the business qualified appointments and revenue.",
+  solution: "Built a VAPI voice agent connected to n8n workflows, GoHighLevel CRM, and a Supabase backend — engineered with Claude Code — to handle inbound calls, qualify leads, and book appointments automatically.",
+  automationImage: vapiThumbnail,
+  platform: "VAPI + n8n + GHL + Supabase",
+  videoUrl: "https://kommodo.ai/recordings/XxGUQuRANUup1LGh0Tg9",
+  detailedWorkflow: ["Inbound call routed to VAPI AI receptionist", "AI greets caller and qualifies the inquiry", "n8n webhook triggered with structured call data", "Contact created or updated in GoHighLevel", "Appointment booked into GHL calendar via voice", "Conversation transcript stored in Supabase", "Follow-up SMS/email sequence triggered in GHL", "Claude Code used to build and refine prompts and integrations"]
+}, {
   title: "AI-Powered Content Creation Workflow",
   description: "Marketing Agency: Automated content creation pipeline that transforms Google Drive files into AI-generated content distributed across multiple social platforms.",
   technologies: ["Zapier", "Google Drive", "AI by Zapier", "LinkedIn", "Instagram", "Facebook"],
@@ -59,19 +72,6 @@ const projects = [{
   automationImage: ghlCaseStudy,
   platform: "GoHighLevel",
   detailedWorkflow: ["Appointment status trigger activates workflow", "Conditional logic checks if tags include no show", "Branch A: Lost tag added for no-shows", "Branch B: Opportunity created for attended appointments", "Opportunity status updated automatically", "Follow-up sequences triggered based on outcome", "Date formatting applied for tracking", "Workflow ends with appropriate next actions"]
-}, {
-  title: "VAPI AI Receptionist",
-  description: "Service Business: A voice AI receptionist that answers calls 24/7, qualifies leads, books appointments, and syncs everything into the CRM in real time.",
-  technologies: ["GoHighLevel", "n8n", "VAPI", "Supabase", "Claude Code"],
-  features: ["24/7 AI voice call handling", "Real-time lead capture into GHL", "Appointment booking via voice", "Conversation logs stored in Supabase"],
-  category: "Voice AI",
-  client: "Service Business",
-  problem: "Missed calls outside business hours and slow lead response were costing the business qualified appointments and revenue.",
-  solution: "Built a VAPI voice agent connected to n8n workflows, GoHighLevel CRM, and a Supabase backend — engineered with Claude Code — to handle inbound calls, qualify leads, and book appointments automatically.",
-  automationImage: vapiThumbnail,
-  platform: "VAPI + n8n + GHL + Supabase",
-  videoUrl: "https://kommodo.ai/recordings/XxGUQuRANUup1LGh0Tg9",
-  detailedWorkflow: ["Inbound call routed to VAPI AI receptionist", "AI greets caller and qualifies the inquiry", "n8n webhook triggered with structured call data", "Contact created or updated in GoHighLevel", "Appointment booked into GHL calendar via voice", "Conversation transcript stored in Supabase", "Follow-up SMS/email sequence triggered in GHL", "Claude Code used to build and refine prompts and integrations"]
 }];
 const Projects = () => {
   return (
