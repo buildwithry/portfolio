@@ -8,8 +8,9 @@ import zapierCaseStudy from "/lovable-uploads/2f07a1c7-8827-4169-9c4d-6353aa8245
 import makeCaseStudy from "/lovable-uploads/833c006f-8a7a-4522-8686-83e73cd9afa2.png";
 import n8nCaseStudy from "/lovable-uploads/7d1106cf-f77a-469f-9c81-5dbbcf6626a8.png";
 import ghlCaseStudy from "/lovable-uploads/0382c638-b3db-4b63-806e-a772fbaeb008.png";
+import vapiThumbnailAsset from "../../assets/vapi-receptionist-thumbnail.jpg.asset.json";
 
-const vapiThumbnail = "https://recordings-apac-prod-cdn.komododecks.com/EuE8pwyLk6Tk7CvKS3XyFeTFb8s2/XxGUQuRANUup1LGh0Tg9/image.jpg?verify=1780865400-Sa5tbx8wUDUDbbQrrHNutQ1f8aoT1tEjP3U6D1d_tPk";
+const vapiThumbnail = vapiThumbnailAsset.url;
 const projects = [{
   title: "AI-Powered Content Creation Workflow",
   description: "Marketing Agency: Automated content creation pipeline that transforms Google Drive files into AI-generated content distributed across multiple social platforms.",
