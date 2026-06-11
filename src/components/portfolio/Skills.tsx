@@ -59,37 +59,23 @@ const Skills = () => {
         {/* Animated Tools Logos */}
         <div className="mb-16">
           <div className="relative overflow-hidden py-8">
-            <div className="flex animate-scroll-right space-x-8 w-max">
+            <div className="flex animate-scroll-right space-x-6 w-max">
               {[...toolLogos, ...toolLogos].map((tool, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0 group cursor-pointer"
+                  title={tool.name}
                 >
-                  <div className="transparent rounded-xl p-6 hover:shadow-lg smooth-animation hover:scale-110 border border-gray-200/20">
-                    <div className="flex items-center justify-center">
-                      <div className="h-20 w-20 group-hover:scale-125 smooth-animation flex items-center justify-center transparent rounded-lg">
-                        {tool.isImage ? (
-                          <img 
-                            src={tool.logo} 
-                            alt={tool.name} 
-                            className="h-16 w-16 object-contain transparent rounded"
-                            style={
-                              ['Shopify', 'Stripe', 'Slack', 'Asana', 'GoHighLevel'].includes(tool.name)
-                                ? { 
-                                    filter: 'contrast(110%) brightness(1.1)',
-                                    mixBlendMode: 'multiply',
-                                    backgroundColor: 'transparent'
-                                  }
-                                : {}
-                            }
-                          />
-                        ) : (
-                          <div className={`text-4xl ${tool.color}`}>
-                            {tool.logo}
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                  <div className="bg-white rounded-2xl p-5 hover:shadow-xl smooth-animation hover:scale-110 border border-border/40 flex flex-col items-center justify-center gap-2 w-32 h-32">
+                    <img
+                      src={tool.logo}
+                      alt={`${tool.name} logo`}
+                      loading="lazy"
+                      className="h-14 w-14 object-contain"
+                    />
+                    <span className="text-xs font-medium text-gray-700 truncate max-w-full">
+                      {tool.name}
+                    </span>
                   </div>
                 </div>
               ))}
