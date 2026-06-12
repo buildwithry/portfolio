@@ -66,14 +66,14 @@ const Skills = () => {
                   className="flex-shrink-0 group cursor-pointer"
                   title={tool.name}
                 >
-                  <div className="bg-white rounded-2xl p-5 hover:shadow-xl smooth-animation hover:scale-110 border border-border/40 flex flex-col items-center justify-center gap-2 w-32 h-32">
+                  <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-5 hover:shadow-xl smooth-animation hover:scale-110 border border-border/60 flex flex-col items-center justify-center gap-2 w-32 h-32">
                     <img
                       src={tool.logo}
                       alt={`${tool.name} logo`}
                       loading="lazy"
                       className="h-14 w-14 object-contain"
                     />
-                    <span className="text-xs font-medium text-gray-700 truncate max-w-full">
+                    <span className="text-xs font-medium text-foreground/80 truncate max-w-full">
                       {tool.name}
                     </span>
                   </div>
