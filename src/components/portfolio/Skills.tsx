@@ -66,14 +66,19 @@ const Skills = () => {
                   className="flex-shrink-0 group cursor-pointer"
                   title={tool.name}
                 >
-                  <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-5 hover:shadow-xl smooth-animation hover:scale-110 border border-border/60 flex flex-col items-center justify-center gap-2 w-32 h-32">
-                    <img
-                      src={tool.logo}
-                      alt={`${tool.name} logo`}
-                      loading="lazy"
-                      className="h-14 w-14 object-contain"
-                    />
-                    <span className="text-xs font-medium text-foreground/80 truncate max-w-full">
+                  <div className="bg-white rounded-2xl p-4 hover:shadow-xl smooth-animation hover:scale-110 border border-border/60 flex flex-col items-center justify-center gap-2 w-32 h-32">
+                    <div className="flex-1 flex items-center justify-center w-full">
+                      <img
+                        src={tool.logo}
+                        alt={`${tool.name} logo`}
+                        loading="lazy"
+                        className="max-h-14 max-w-[80%] object-contain"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    <span className="text-xs font-semibold text-gray-700 truncate max-w-full">
                       {tool.name}
                     </span>
                   </div>
