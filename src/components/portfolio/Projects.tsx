@@ -51,6 +51,10 @@ const projects = [{
     "Uploads the video to Facebook via the Graph API with generated caption",
     "Uploads the video to YouTube with generated title and description",
     "Updates the Google Sheet row: status = Posted, posted_at = today"
+  ],
+  sampleLinks: [
+    { label: "Facebook Reel sample", url: "https://www.facebook.com/reel/1245462175306768/?s=single_unit" },
+    { label: "YouTube Shorts sample", url: "https://www.youtube.com/shorts/yudXdZTOQPM" }
   ]
 }, {
   title: "AI-Powered Content Creation Workflow",
