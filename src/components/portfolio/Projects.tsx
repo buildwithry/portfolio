@@ -287,6 +287,27 @@ const Projects = () => {
                               ))}
                             </ul>
                           </div>
+
+                          {(project as any).sampleLinks && (
+                            <div>
+                              <h4 className="font-bold text-lg mb-2">Sample Output</h4>
+                              <ul className="space-y-2">
+                                {(project as any).sampleLinks.map((link: { label: string; url: string }, i: number) => (
+                                  <li key={i} className="flex items-start text-sm">
+                                    <ExternalLink className="w-4 h-4 mr-2 mt-0.5 text-primary flex-shrink-0" />
+                                    <a
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-primary hover:underline break-all"
+                                    >
+                                      {link.label}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </div>
                         
                         <div className="space-y-4">
