@@ -27,6 +27,32 @@ const projects = [{
   videoUrl: "https://kommodo.ai/recordings/XxGUQuRANUup1LGh0Tg9",
   detailedWorkflow: ["Inbound call routed to VAPI AI receptionist", "AI greets caller and qualifies the inquiry", "n8n webhook triggered with structured call data", "Contact created or updated in GoHighLevel", "Appointment booked into GHL calendar via voice", "Conversation transcript stored in Supabase", "Follow-up SMS/email sequence triggered in GHL", "Claude Code used to build and refine prompts and integrations"]
 }, {
+  title: "ASMR AI Video Creator",
+  description: "Content Creator: Fully automated daily ASMR video generation and publishing pipeline that creates, renders, and posts videos to Facebook and YouTube with zero manual work.",
+  technologies: ["n8n", "Google Gemini", "Google Veo", "Google Sheets", "Facebook Graph API", "YouTube API", "Gmail"],
+  features: ["100% automated daily video generation", "AI-written prompts, titles, and captions", "Auto-publishing to Facebook and YouTube", "Safety filter and error handling with email alerts"],
+  category: "AI Content Automation",
+  client: "Content Creator",
+  problem: "Producing and publishing daily ASMR video content across multiple platforms required hours of manual work — writing prompts, generating videos, formatting captions, and uploading to each channel.",
+  solution: "Built an n8n workflow that runs every day at 12:00 AM: it picks a random pending fruit from a Google Sheet, uses Gemini to generate the Veo prompt, title, and caption, generates the video with Google Veo, then uploads it to Facebook and YouTube automatically. Includes JWT auth, safety-filter handling, and email alerts on errors.",
+  automationImage: asmrThumbnail,
+  platform: "n8n + Gemini + Veo",
+  detailedWorkflow: [
+    "Schedule trigger fires every day at 12:00 AM",
+    "Reads Google Sheet and gets all fruits with status = Pending",
+    "Randomly selects one pending fruit (with style)",
+    "Gemini generates Veo prompt, YouTube title, and description/caption",
+    "Checks if Gemini returned an error — sends email alert and stops if so",
+    "Builds JWT payload, signs it, and exchanges it for a Google access token",
+    "Sends prompt to Google Veo to generate the video (returns operation ID)",
+    "Waits, then polls Veo to check if the video is ready",
+    "Handles safety-filter and error branches (stops workflow with notification)",
+    "Converts the returned Base64 video into an MP4 file",
+    "Uploads the video to Facebook via the Graph API with generated caption",
+    "Uploads the video to YouTube with generated title and description",
+    "Updates the Google Sheet row: status = Posted, posted_at = today"
+  ]
+}, {
   title: "AI-Powered Content Creation Workflow",
   description: "Marketing Agency: Automated content creation pipeline that transforms Google Drive files into AI-generated content distributed across multiple social platforms.",
   technologies: ["Zapier", "Google Drive", "AI by Zapier", "LinkedIn", "Instagram", "Facebook"],
