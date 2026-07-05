@@ -9,8 +9,10 @@ import makeCaseStudy from "/lovable-uploads/833c006f-8a7a-4522-8686-83e73cd9afa2
 import n8nCaseStudy from "/lovable-uploads/7d1106cf-f77a-469f-9c81-5dbbcf6626a8.png";
 import ghlCaseStudy from "/lovable-uploads/0382c638-b3db-4b63-806e-a772fbaeb008.png";
 import vapiThumbnailAsset from "../../assets/vapi-receptionist-thumbnail.jpg.asset.json";
+import asmrThumbnailAsset from "../../assets/asmr-ai-video-creator-thumbnail.png.asset.json";
 
 const vapiThumbnail = vapiThumbnailAsset.url;
+const asmrThumbnail = asmrThumbnailAsset.url;
 const projects = [{
   title: "VAPI AI Receptionist",
   description: "Service Business: A voice AI receptionist that answers calls 24/7, qualifies leads, books appointments, and syncs everything into the CRM in real time.",
