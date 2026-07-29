@@ -10,7 +10,7 @@ import n8nCaseStudy from "/lovable-uploads/7d1106cf-f77a-469f-9c81-5dbbcf6626a8.
 import ghlCaseStudy from "/lovable-uploads/0382c638-b3db-4b63-806e-a772fbaeb008.png";
 import asmrThumbnail from "/lovable-uploads/asmr-ai-video-creator-thumbnail.png";
 import vapiThumbnail from "/lovable-uploads/vapi-ai-receptionist.jpg";
-import metaReceptionistThumbnail from "/lovable-uploads/ai-meta-receptionist.jpg";
+import metaReceptionistThumbnail from "/lovable-uploads/ai-meta-receptionist.png";
 
 const projects = [{
   title: "VAPI AI Receptionist",
