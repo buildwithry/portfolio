@@ -185,8 +185,8 @@ const Projects = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                         {(project as any).videoUrl ? (
-                          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                            <Play className="w-7 h-7 text-primary-foreground ml-1" fill="currentColor" />
+                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                            <Play className="w-7 h-7 text-black ml-1" fill="black" />
                           </div>
                         ) : (
                           <Eye className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
